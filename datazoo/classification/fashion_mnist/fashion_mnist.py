@@ -1,18 +1,22 @@
-from __future__ import print_function
 from PIL import Image
-
 from datazoo.common.utils import *
 
 
-class MNIST:
+class FashionMNIST:
     def __init__(self, data_dir, split, download):
+        """
+        Fashion MNIST dataset. Original source from torchvision.
+        :param data_dir:
+        :param split:
+        :param download:
+        """
         self.urls = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
+            'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz',
+            'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz',
+            'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz',
+            'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz',
         ]
-        
+
         self.training_file = 'train.pkl'
         self.test_file = 'test.pkl'
 
@@ -27,17 +31,16 @@ class MNIST:
             data_file = self.test_file
 
         self.data, self.targets = load_dict(os.path.join(data_dir, data_file))
-        self.classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        self.classes = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, index):
         """
-        Args:
-            index (int): Index
-        Returns:
-            tuple: (image, target) where target is index of the target class.
+        Get item with index
+        :param index: index to return
+        :return: dict with all the possible fields
         """
         img, target = self.data[index], int(self.targets[index])
 
@@ -56,7 +59,10 @@ class MNIST:
             os.path.exists(os.path.join(self.data_dir, self.test_file))
 
     def download(self):
-        """Download the MNIST data if it doesn't exist in processed_folder already."""
+        """
+        Download the dataset
+        :return:
+        """
 
         if self._check_exists():
             return
@@ -67,7 +73,7 @@ class MNIST:
         for url in self.urls:
             filename = url.rpartition('/')[2]
             file_path = os.path.join(self.data_dir, filename)
-            download_url(url, root=self.data_dir, filename=filename, md5=None)
+            download_url(url, root=self.data_dir, filename=filename)
             extract_gzip(gzip_path=file_path, remove_finished=False)
 
         # process and save as torch files

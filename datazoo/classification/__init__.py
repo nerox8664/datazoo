@@ -1,2 +1,4 @@
 from .mnist import MNIST
-__all__ = ['MNIST']
+from .fashion_mnist import FashionMNIST
+
+__all__ = ['MNIST', 'FashionMNIST']
