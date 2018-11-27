@@ -1,4 +1,5 @@
 from .mnist import MNIST
 from .fashion_mnist import FashionMNIST
+from .cifar10 import CIFAR10
 
-__all__ = ['MNIST', 'FashionMNIST']
+__all__ = ['MNIST', 'FashionMNIST', 'CIFAR10']
