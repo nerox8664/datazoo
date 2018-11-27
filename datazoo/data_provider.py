@@ -44,6 +44,7 @@ def data_provider(dataset, data_dir, split, download=False, columns=None):
         'mnist': MNIST,
         'fashionmnist': FashionMNIST,
         'cifar10': CIFAR10,
+        'cifar100': CIFAR100,
     }
 
     return DatasetWrapper(mapping[dataset.lower()](data_dir, split, download), columns)
