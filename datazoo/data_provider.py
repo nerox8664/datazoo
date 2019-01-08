@@ -15,9 +15,18 @@ class DatasetWrapper:
         self.columns = columns
 
     def __len__(self):
+        """
+        Return length of the target dataset.
+        """
         return len(self.dataset)
     
     def  __getitem__(self, idx):
+        """
+        Get corresponding sample from the dataset
+        :param idx: index
+        :return: tuple with data (in order specified with columns)
+        """
+
         result = []
         original_data = self.dataset[idx]
         

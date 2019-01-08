@@ -6,7 +6,7 @@ This repository provides unified access to the multiple datasets.
 
 ### Single-label datasets
 
-| Dataset | Number of classes | Number of samples | Description | Source | Available for auto-downloading |
+| Dataset | Number of classes | Number of samples | Description | Source | Auto downloading |
 | --- | ---: | ---: | ---: | ---: |  ---: |
 | MNIST | 10 | 60 000 / 10 000 | Hand-written digits | torchvision | Yes |
 | Fashion MNIST | 10 | 60 000 / 10 000 | Clothes version of MNIST | torchvision | Yes |
