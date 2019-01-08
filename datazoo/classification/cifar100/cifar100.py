@@ -8,6 +8,13 @@ from datazoo.common.utils import *
 
 class CIFAR100:
     def __init__(self, data_dir, split, download):
+        """
+        Create a CIFAR-100 dataset instance.
+        :param data_dir: source/target folder with data
+        :param split: 'train' or 'test'
+        :param download: download dataset and place to `data_dir`
+        """
+
         self.urls = [
             'https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz',
         ]

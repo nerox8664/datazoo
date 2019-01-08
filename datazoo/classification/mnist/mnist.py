@@ -6,6 +6,13 @@ from datazoo.common.utils import *
 
 class MNIST:
     def __init__(self, data_dir, split, download):
+        """
+        Create a MNIST dataset instance.
+        :param data_dir: source/target folder with data
+        :param split: 'train' or 'test'
+        :param download: download dataset and place to `data_dir`
+        """
+
         self.urls = [
             'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
             'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',

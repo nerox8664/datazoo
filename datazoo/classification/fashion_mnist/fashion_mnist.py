@@ -6,9 +6,9 @@ class FashionMNIST:
     def __init__(self, data_dir, split, download):
         """
         Fashion MNIST dataset. Original source from torchvision.
-        :param data_dir:
-        :param split:
-        :param download:
+        :param data_dir: source/target folder with data
+        :param split: 'train' or 'test'
+        :param download: download dataset and place to `data_dir`
         """
         self.urls = [
             'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz',

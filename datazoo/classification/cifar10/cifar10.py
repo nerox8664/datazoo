@@ -8,6 +8,13 @@ from datazoo.common.utils import *
 
 class CIFAR10:
     def __init__(self, data_dir, split, download):
+        """
+        Create a CIFAR-10 dataset instance.
+        :param data_dir: source/target folder with data
+        :param split: 'train' or 'test'
+        :param download: download dataset and place to `data_dir`
+        """
+
         self.urls = [
             'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz',
         ]
@@ -37,6 +44,7 @@ class CIFAR10:
 
         self.data = []
         self.targets = []
+
         # now load the picked numpy arrays
         for file_name, checksum in downloaded_list:
             file_path = os.path.join(self.data_dir, 'cifar-10-batches-py', file_name)
@@ -93,6 +101,8 @@ class CIFAR10:
 
         makedir_exist_ok(self.data_dir)
 
+        print('Downloading...')
+
         # download files
         for url in self.urls:
             filename = url.rpartition('/')[2]
@@ -100,7 +110,6 @@ class CIFAR10:
             download_url(url, root=self.data_dir, filename=filename)
             extract_gzip(gzip_path=file_path, remove_finished=False)
 
-        # process and save as torch files
         print('Processing...')
 
          # extract file
