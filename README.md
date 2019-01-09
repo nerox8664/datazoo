@@ -2,6 +2,27 @@
 
 This repository provides unified access to the multiple datasets.
 
+## Usage
+
+First of all, you have to import data_provider from datazoo package:
+
+```
+from datazoo import data_provider
+```
+
+Then, you can use dataset from the list:
+
+```
+# Dataset object
+fashionmnist = data_provider('fashionmnist', 'data/fashionmnist/', split='test', download=True, columns=['index', 'image', 'class'])
+
+print('Dataset length:', len(fashionmnist))
+
+# Iterate over samples
+for i in fashionmnist:
+    print(i) 
+```
+
 ## Classification
 
 ### Single-label datasets
