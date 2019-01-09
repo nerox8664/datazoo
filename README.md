@@ -34,6 +34,7 @@ for i in fashionmnist:
 | CIFAR-10 | 10 | 50 000 / 10 000 | Tiny images for classification | torchvision | Yes |
 | CIFAR-100 | 100 | 50 000 / 10 000 | Tiny images for classification | torchvision | Yes |
 | [Indoor Scene Recognition](http://web.mit.edu/torralba/www/indoor.html) | 67 | 15620 | Dataset for scene classification | -- | Yes |
+| [The Street View House Numbers (SVHN)](http://ufldl.stanford.edu/housenumbers/) | 10 | 73257 digits for training, 26032 digits for testing, and 531131 additional | Dataset for scene classification | -- | Yes |
 
 
 <!-- ### Multiple labels datasets -->
