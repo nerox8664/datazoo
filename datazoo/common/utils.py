@@ -7,6 +7,7 @@ import codecs
 import gzip
 from six.moves import cPickle as pickle
 import numpy as np
+import fnmatch
 
 
 def save_dict(filename_, di_):
@@ -95,9 +96,23 @@ def download_url(url, root, filename):
 
 
 def extract_gzip(gzip_path, remove_finished=False):
-        print('Extracting {}'.format(gzip_path))
-        with open(gzip_path.replace('.gz', ''), 'wb') as out_f, \
-                gzip.GzipFile(gzip_path) as zip_f:
-            out_f.write(zip_f.read())
-        if remove_finished:
-            os.unlink(gzip_path)
+    print('Extracting {}'.format(gzip_path))
+    with open(gzip_path.replace('.gz', ''), 'wb') as out_f, \
+            gzip.GzipFile(gzip_path) as zip_f:
+        out_f.write(zip_f.read())
+    if remove_finished:
+        os.unlink(gzip_path)
+
+
+def recursive_glob(rootdir='.', pattern='*'):
+    """Search recursively for files matching a specified pattern.
+    
+    Adapted from http://stackoverflow.com/questions/2186525/use-a-glob-to-find-files-recursively-in-python
+    """
+
+    matches = []
+    for root, dirnames, filenames in os.walk(rootdir):
+      for filename in fnmatch.filter(filenames, pattern):
+          matches.append(os.path.join(root, filename))
+
+    return matches
