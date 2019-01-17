@@ -17,9 +17,6 @@ class SVHN_cropped:
             'http://ufldl.stanford.edu/housenumbers/extra_32x32.mat',
         ]
 
-        self.training_file = 'train.pkl'
-        self.test_file = 'test.pkl'
-
         self.data_dir = data_dir
 
         self.data_files = {

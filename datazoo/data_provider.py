@@ -57,6 +57,7 @@ def data_provider(dataset, data_dir, split, download=False, columns=None):
         'indoor_scene_recon': IndoorSceneRecon,
         'svhn_cropped': SVHN_cropped,
         'linnaeus5': Linnaeus5,
+        'coil100': COIL100,
     }
 
     return DatasetWrapper(mapping[dataset.lower()](data_dir, split, download), columns)
