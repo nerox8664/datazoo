@@ -38,7 +38,7 @@ for i in fashionmnist:
 | CIFAR-100 | `cifar100` | 100 | 50 000 / 10 000 | torchvision | Yes |
 | [Indoor Scene Recognition](http://web.mit.edu/torralba/www/indoor.html) | `indoor_scene_recon` | 67 | 15620 | -- | Yes |
 | [The Street View House Numbers (SVHN)](http://ufldl.stanford.edu/housenumbers/) | `svhn_cropped` | 10 | 73257 digits for training, 26032 digits for testing, and 531131 additional | -- | Yes |
-
+| [Linnaeus5](http://chaladze.com/l5/) | `linnaeus5` | 5 classes: berry, bird, dog, flower, other (negative set) | 1200 training images, 400 test images per class | -- | Yes |
 
 <!-- ### Multiple labels datasets -->
 <!-- 
