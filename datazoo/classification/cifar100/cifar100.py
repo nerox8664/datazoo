@@ -42,7 +42,7 @@ class CIFAR100:
         self.targets = []
         # now load the picked numpy arrays
         for file_name, checksum in downloaded_list:
-            file_path = os.path.join(self.data_dir, 'cifar-100-batches-py', file_name)
+            file_path = os.path.join(self.data_dir, 'cifar-100-python', file_name)
             with open(file_path, 'rb') as f:
                 if sys.version_info[0] == 2:
                     entry = pickle.load(f)
@@ -80,7 +80,7 @@ class CIFAR100:
         }
 
     def _check_exists(self):
-        root = os.path.join(self.data_dir, 'cifar-100-batches-py')
+        root = os.path.join(self.data_dir, 'cifar-100-python')
         for fentry in (self.train_list + self.test_list):
             filename, md5 = fentry[0], fentry[1]
             fpath = os.path.join(root, filename)

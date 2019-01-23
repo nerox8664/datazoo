@@ -1,6 +1,6 @@
 # Data zoo
 
-This repository provides unified access to the multiple datasets.
+This repository provides unified access to multiple datasets.
 
 ## Usage
 
@@ -10,7 +10,7 @@ First of all, you have to import data_provider from datazoo package:
 from datazoo import data_provider
 ```
 
-Then, you can use dataset from the list:
+Then, you can select dataset from the list and get iterable:
 
 ```
 # Dataset object
@@ -48,3 +48,6 @@ for i in fashionmnist:
 | Dataset | Number of classes | Number of samples | Description | Source |
 | --- | ---: | ---: | ---: | ---: |
 | ADE20k | 10 | 60 000 / 10 000 | General-purpose scene parsing | torchvision | -->
+
+## License
+This software is covered by MIT License.
