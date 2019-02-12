@@ -8,18 +8,18 @@ from datazoo.common.utils import *
 from os import listdir, rmdir
 from shutil import move
 
-import pkg_resources
-
-resource_package = __name__
-train_resource_path = 'TrainImages.txt'
-test_resource_path = 'TestImages.txt'
-
-train_resource_stream = pkg_resources.resource_stream(resource_package, train_resource_path)
-test_resource_stream = pkg_resources.resource_stream(resource_package, test_resource_path)
-
 
 class IndoorSceneRecon:
     def __init__(self, data_dir, split, download):
+        import pkg_resources
+
+        resource_package = __name__
+        train_resource_path = 'TrainImages.txt'
+        test_resource_path = 'TestImages.txt'
+
+        train_resource_stream = pkg_resources.resource_stream(resource_package, train_resource_path)
+        test_resource_stream = pkg_resources.resource_stream(resource_package, test_resource_path)
+
         self.urls = [
             'http://groups.csail.mit.edu/vision/LabelMe/NewImages/indoorCVPR_09.tar',
         ]
